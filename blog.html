@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pranoy Ghosh</title>
+    <title>Blog - Pranoy Ghosh</title>
     <style>
         :root {
             --bg-color: #ffffff;
@@ -88,21 +88,30 @@
 
         h1 {
             font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .subtitle {
-            font-size: 1rem;
-            color: var(--text-color);
-            opacity: 0.8;
             margin-bottom: 1rem;
         }
 
-        .bio {
+        .description {
             font-size: 1rem;
-            line-height: 1.6;
             color: var(--text-color);
-            opacity: 0.9;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--link-color);
+            border-radius: 6px;
+            color: var(--link-color);
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .blog-link:hover {
+            background-color: var(--link-color);
+            color: var(--bg-color);
         }
 
         footer {
@@ -118,19 +127,19 @@
 <body>
     <header>
         <nav>
-            <a href="index.html" class="active">About</a>
+            <a href="index.html">About</a>
             <a href="resume.html">Resume</a>
-            <a href="blog.html">Blog</a>
+            <a href="blog.html" class="active">Blog</a>
         </nav>
         <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn">🌙</button>
     </header>
 
     <main>
-        <h1>Pranoy Ghosh</h1>
-        <p class="subtitle">MS in Computer Science @ NYU Courant</p>
-        <p class="bio">
-            Interested in deep learning, computer vision, and robotics.
+        <h1>Blog</h1>
+        <p class="description">
+            I got bored and decided to collate all my thoughts in one place.
         </p>
+        <a href="https://pgtxt.bearblog.dev/" class="blog-link" target="_blank">Read my blog →</a>
     </main>
 
     <footer>

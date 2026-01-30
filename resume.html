@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Pranoy Ghosh</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --link-color: #0366d6;
+            --border-color: #e1e4e8;
+            --code-bg: #f6f8fa;
+            --timeline-color: #0366d6;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0d1117;
+            --text-color: #c9d1d9;
+            --link-color: #58a6ff;
+            --border-color: #30363d;
+            --code-bg: #161b22;
+            --timeline-color: #58a6ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--link-color);
+        }
+
+        nav a.active {
+            color: var(--link-color);
+            font-weight: 500;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            cursor: pointer;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 1.2rem;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--code-bg);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .resume-icon {
+            font-size: 1.5rem;
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+            text-decoration: none;
+        }
+
+        .resume-icon:hover {
+            opacity: 1;
+        }
+
+        /* Timeline styles */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--timeline-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.3rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--timeline-color);
+            border: 2px solid var(--bg-color);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-color);
+            opacity: 0.7;
+            white-space: nowrap;
+            margin-left: 1rem;
+        }
+
+        .timeline-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-description {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            opacity: 0.9;
+        }
+
+        .job-role {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .job-role:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.25rem;
+        }
+
+        .job-title {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0.85;
+        }
+
+        .job-date {
+            font-size: 0.85rem;
+            color: var(--text-color);
+            opacity: 0.7;
+            white-space: nowrap;
+            margin-left: 1rem;
+        }
+
+        .job-description {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            opacity: 0.9;
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">About</a>
+            <a href="resume.html" class="active">Resume</a>
+            <a href="blog.html">Blog</a>
+        </nav>
+        <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn">🌙</button>
+    </header>
+
+    <main>
+        <h1>
+            <span>Resume</span>
+            <a href="Resume.pdf" class="resume-icon" download title="Download Resume">📄</a>
+        </h1>
+
+        <section>
+            <h2>Education</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title">NYU Courant</div>
+                        <div class="timeline-date">Sep 2025 – May 2027</div>
+                    </div>
+                    <div class="timeline-subtitle">MS CS | GPA: 3.78/4</div>
+                    <div class="timeline-description">
+                        Coursework in Machine Learning, Operating Systems, and Programming Languages.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title">Manipal Institute of Technology</div>
+                        <div class="timeline-date">Jul 2017 – Aug 2021</div>
+                    </div>
+                    <div class="timeline-subtitle">B.Tech CCE | CGPA: 9.07/10</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Work Experience</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-title" style="margin-bottom: 1rem;">Cohesity Inc.</div>
+
+                    <div class="job-role">
+                        <div class="job-header">
+                            <div class="job-title">MTS</div>
+                            <div class="job-date">Nov 2022 – Jul 2025</div>
+                        </div>
+                        <div class="job-description">
+                            Built lab automation platform and developer tools serving engineering teams. 
+                            Developed tools for distributed systems troubleshooting.
+                        </div>
+                    </div>
+
+                    <div class="job-role">
+                        <div class="job-header">
+                            <div class="job-title">SRE</div>
+                            <div class="job-date">Aug 2021 – Oct 2022</div>
+                        </div>
+                        <div class="job-description">
+                            Ensured high availability across production deployments. 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Pranoy Ghosh</p>
+    </footer>
+
+    <script>
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        const themeBtn = document.getElementById('theme-btn');
+
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeBtn.textContent = '☀️';
+        } else {
+            themeBtn.textContent = '🌙';
+        }
+
+        function toggleTheme() {
+            const theme = document.documentElement.getAttribute('data-theme');
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeBtn.textContent = '🌙';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeBtn.textContent = '☀️';
+            }
+        }
+    </script>
+</body>
+</html>
