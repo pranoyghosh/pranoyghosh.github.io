@@ -92,15 +92,20 @@
             justify-content: space-between;
         }
 
-        h2 {
-            font-size: 1.5rem;
-            margin: 2.5rem 0 1rem 0;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.5rem;
+        /* Make spacing between major sections explicit (more reliable than only h2 margins) */
+        main > section {
+            margin-bottom: 3.5rem;
         }
 
-        h2:first-of-type {
-            margin-top: 0;
+        main > section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 0 0 1rem 0; /* Let section spacing handle the gap between Education and Work */
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
         }
 
         .resume-icon {
@@ -289,7 +294,7 @@
                             <div class="job-date">Nov 2022 – Jul 2025</div>
                         </div>
                         <div class="job-description">
-                            Built lab automation platform and developer tools serving engineering teams. 
+                            Built lab automation platform and developer tools serving engineering teams.
                             Developed tools for distributed systems troubleshooting.
                         </div>
                     </div>
@@ -300,7 +305,7 @@
                             <div class="job-date">Aug 2021 – Oct 2022</div>
                         </div>
                         <div class="job-description">
-                            Ensured high availability across production deployments. 
+                            Ensured high availability across production deployments.
                         </div>
                     </div>
                 </div>
